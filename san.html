@@ -1,0 +1,85 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="san.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="san.js"></script>
+</head>
+
+<body class="home" onload="switchTo('editor'); pull1();">
+  <div id="wrap">
+    <div id="switch">
+      <a id="switch-editor" class="button" onclick="switchTo('editor')">编写故事</a>
+      <a id="switch-reader" class="button" onclick="switchTo('reader')">阅读故事</a>
+      <a id="switch-poster" class="button" onclick="switchTo('poster')">添加题目</a>
+    </div>
+    <div id="help">
+      <span>
+        <strong>这是怎么用的?</strong><br>
+        <br>
+        【添加题目】可以提交一个或三个一组的词。<br>
+        “三个一组的词”会在别人使用“更换三个一组的主题”时，原封不动地出现；<br>
+        “一个词”则会在别人使用“更换完全随机的主题”时和所有可用的主题词随机组合。<br>
+        <br>
+        【编写故事】就是获取题目然后写，最长1500字。<br>
+        写完之后注明作者与否随意。<br>
+        之后就提交故事。<br>
+        <br>
+        【阅读故事】随便看看别人的故事。
+      </span>
+      <a class="button" onclick="$('div#help').fadeOut('fast')">[隐藏]</a>
+    </div>
+    <!-- end center-top -->
+    <div class="sep"></div>
+    <div id="editor">
+      <div id="topic-words">在这里 编写 故事</div>
+      <textarea id="article"></textarea>
+      <div id="left">
+        <span>作者(可选):</span>
+        <input id="author" />
+      </div>
+      <div id="right">
+        <a id="editor-pull1" class="button right" onclick="pull1()">换一个完全随机的主题</a>
+        <a id="editor-pull3" class="button right" onclick="pull3()">换一个三个一组的主题</a>
+        <a id="editor-pushArticle" class="button right"  onclick="pushArticle();">提交</a>
+      </div>
+      <div class="clear-fix"></div>
+      <span id="status">&nbsp;</span>
+      <div class="sep"></div>
+    </div>
+    <div id="reader">
+      <div id="topic-words">在这里 查看 故事</div>
+      <textarea id="article"></textarea>
+      <div id="left">
+        <span>作者</span>
+        <input id="author" />
+      </div>
+      <div id="right">
+        <a id="editor-pullArticle" class="button right" onclick="pullArticle();">随便读取一篇文章</a>
+      </div>
+      <div class="clear-fix"></div>
+      <div class="sep"></div>
+    </div>
+    <div id="poster">
+      <div id="left">
+        <span>提交新的主题词</span>
+        <input id="topic-words" />
+      </div>
+      <div id="right">
+        <a id="poster-push1" class="button right" onclick="push1();">提交一个</a>
+        <a id="poster-push3" class="button right" onclick="push3();">提交一组(三个)</a>
+      </div>
+      <div class="clear-fix"></div>
+      <span id="status">&nbsp;</span>
+      <div class="sep"></div>
+    </div>
+    <!-- end center -->
+    <div id="center-bottom">
+      <span>ver 0.0.3</span>
+    </div>
+    <!-- end center-bottom -->
+  </div>
+  <!-- end wrap -->
+</body>

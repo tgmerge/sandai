@@ -1,0 +1,136 @@
+/** 00dd00 007700 003300 **/
+
+
+
+/** 通用 **/
+
+body, 
+body a, body a:hover {
+	color: #00aa00;
+	text-decoration: none;
+	font-size: 14px;
+	font-family: monospace, Hiragino Sans GB, 文泉驿正黑, 微软雅黑, sans-serif;
+}
+
+input, textarea {
+ 	background: none;
+ 	border-top: 1px solid #003300;
+	border-bottom: 1px solid #003300;
+	border-left: none;
+	border-right: none;
+	width: 100%;
+	color: #00DD00;
+	text-decoration: none;
+	font-size: 16px;
+	font-family: monospace, 方正博雅方刊宋_GBK, Hiragino Sans GB, 文泉驿正黑, 微软雅黑, 宋体, serif;
+}
+
+textarea {
+	display: block;
+	min-height: 400px;
+	padding: 10px 0;
+	resize: none;
+	line-height: 150%;
+	letter-spacing: normal;
+}
+
+a.button {
+	border-bottom: 1px dotted #007700;
+	padding-bottom: 0px;
+	line-height: 14px;
+	cursor:pointer;
+}
+
+
+textarea:focus,
+input:focus {
+	outline: none;
+}
+
+div.clear-fix {
+	clear: both;
+}
+
+div.sep {
+	width:100%;
+	height:50px;
+}
+
+/** 特殊 **/
+
+body {
+	background: #000;
+}
+
+div#wrap {
+	width: 650px;
+	margin: 0px auto;
+}
+
+/* */
+
+div#editor {
+	text-align: center;
+}
+
+div#topic-words {
+	margin: 20px 0 30px 0;
+	text-align: center;
+	word-spacing: 20px;
+	font-size: 30px;
+	font-family: Georgia, 方正博雅方刊宋_GBK, Hiragino Sans GB, 宋体, serif;
+}
+
+div#left {
+	margin-top:4px;
+	float: left;
+	height: 25px;
+	text-align: left;
+}
+div#right {
+	margin-top:4px;
+	float: right;
+	height: 25px;
+	text-align: right;
+}
+
+input#author,
+input#topic-words {
+	display: inline;
+	width: 80px;
+	border-top: none;
+	border-bottom: 1px dotted #00aa00;
+	padding-bottom: 0px;
+	font-size: 14px;
+	font-family: monospace, Hiragino Sans GB, 文泉驿正黑, 微软雅黑, sans-serif;
+}
+input#author:focus {
+	width: 120px;
+}
+
+a.button.right{
+	margin-top: 3px;
+}
+
+/* */
+
+input#topic-words {
+	width: 300px;
+}
+
+/* */
+
+div#help {
+	min-height: 40px;
+	max-width: 300px;
+	position: fixed;
+	top: 5px;
+	left: 5px;
+	border: 1px solid #007700;
+}
+
+span#status {
+	display: block;
+	width: 100%;
+	text-align: left;
+}
