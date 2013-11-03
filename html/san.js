@@ -87,8 +87,9 @@ function pullArticle() {
 
 function push1() {
   var statDiv = $('div#poster span#status');
-  var word = $.trim($('div#poster input#topic-words').val());
-  if (word == '') {
+  var words = new Array();
+  words = $('div#poster input#topic-words').val().split(/[ 　,，、]+/);
+  if (words[0] == '' || words.length != 1) {
     animateChange(statDiv, '>>请输入一个词语。');
     return;
   }
@@ -96,7 +97,7 @@ function push1() {
   $.post(
     url, {
       method: "push1",
-      word: word
+      word: words[0]
     },
     function(data) {
       animateChange(statDiv, data.stat);
