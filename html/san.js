@@ -8,16 +8,10 @@ function animateChange(jQobj, text) {
 /* --- switch --- */
 
 function switchTo(targetId) {
-  var parts = new Array($('div#editor'), $('div#reader'), $('div#poster'));
-  var tags = new Array($('a#switch-editor'), $('a#switch-reader'), $('a#switch-poster'));
-  var target = $('div#'+targetId);
-  var tag = $('a#switch-'+targetId);
-  for(var i in parts) {
-    parts[i].hide();
-    tags[i].fadeTo(10, 0.5);
-  }
-  target.fadeIn("fast");
-  tag.fadeTo(10, 1);
+  $('div.page').hide();
+  $('a.pageswitch').fadeTo(10, 0.5);
+  $('div#'+targetId).fadeIn("fast");
+  $('a#switch-'+targetId).fadeTo(10, 1);
 }
 
 /* --- pull --- */
@@ -100,7 +94,8 @@ function push1() {
       word: words[0]
     },
     function(data) {
-      animateChange(statDiv, data.stat);
+      var statStr = data.stat=='success' ? '...吞了下去' : data.stat;
+      animateChange(statDiv, statStr);
     });
 }
 
@@ -119,7 +114,8 @@ function push3() {
       words: words.join(' ')
     },
     function(data) {
-      animateChange(statDiv, data.stat);
+      var statStr = data.stat=='success' ? '...吞了下去' : data.stat;
+      animateChange(statDiv, statStr);
     });
 }
 
@@ -145,7 +141,8 @@ function pushArticle() {
       author: author
     },
     function(data) {
-      animateChange(statDiv, data.stat);
+      var statStr = data.stat=='success' ? '...吞了下去' : data.stat;
+      animateChange(statDiv, statStr);
     });
 }
 

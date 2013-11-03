@@ -11,11 +11,14 @@
 <body class="home" onload="switchTo('editor'); pull1();">
   <div id="wrap">
     <div id="switch">
-      <a id="switch-editor" class="button" onclick="switchTo('editor')">编写故事</a>
-      <a id="switch-reader" class="button" onclick="switchTo('reader')">阅读故事</a>
-      <a id="switch-poster" class="button" onclick="switchTo('poster')">添加题目</a>
+      <a id="switch-help" class="button pageswitch" onclick="switchTo('help')">帮助</a>
+      <a id="switch-editor" class="button pageswitch" onclick="switchTo('editor')">编写故事</a>
+      <a id="switch-reader" class="button pageswitch" onclick="switchTo('reader')">阅读故事</a>
+      <a id="switch-list" class="button pageswitch" onclick="switchTo('list')">所有故事</a>
+      <a id="switch-poster" class="button pageswitch" onclick="switchTo('poster')">添加题目</a>
     </div>
-    <div id="help">
+    <div class="sep"></div>
+    <div id="help" class="page">
       <span>
         <strong>这是怎么用的?</strong><br>
         <br>
@@ -29,11 +32,9 @@
         <br>
         【阅读故事】随便看看别人的故事。
       </span>
-      <a class="button" onclick="$('div#help').fadeOut('fast')">[隐藏]</a>
     </div>
     <!-- end center-top -->
-    <div class="sep"></div>
-    <div id="editor">
+    <div id="editor" class="page">
       <div id="topic-words">在这里 编写 故事</div>
       <textarea id="article"></textarea>
       <div id="left">
@@ -47,22 +48,23 @@
       </div>
       <div class="clear-fix"></div>
       <span id="status">&nbsp;</span>
-      <div class="sep"></div>
     </div>
-    <div id="reader">
+    <div id="reader" class="page">
       <div id="topic-words">在这里 查看 故事</div>
-      <textarea id="article"></textarea>
+      <textarea id="article" readonly='true'></textarea>
       <div id="left">
         <span>作者</span>
-        <input id="author" />
+        <input id="author" readonly='true' />
       </div>
       <div id="right">
         <a id="editor-pullArticle" class="button right" onclick="pullArticle();">随便读取一篇文章</a>
       </div>
       <div class="clear-fix"></div>
-      <div class="sep"></div>
     </div>
-    <div id="poster">
+    <div id="list" class="page">
+      <span>...无法实现的愿望啊</span>
+    </div>
+    <div id="poster" class="page">
       <div id="left">
         <span>提交新的主题词</span>
         <input id="topic-words" />
@@ -74,11 +76,11 @@
       <div class="clear-fix"></div>
       <span id="status">&nbsp;</span>
       <span><br>如果选择提交一组的话，请输入三个用空格、逗号或顿号分隔的词语。</span>
-      <div class="sep"></div>
     </div>
+    <div class="sep"></div>
     <!-- end center -->
     <div id="center-bottom">
-      <span>ver 0.0.3</span>
+      <span>ver 0.0.5</span>
     </div>
     <!-- end center-bottom -->
   </div>

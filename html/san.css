@@ -30,7 +30,7 @@ textarea {
 	min-height: 400px;
 	padding: 10px 0;
 	resize: none;
-	line-height: 150%;
+	line-height: 170%;
 	letter-spacing: normal;
 }
 
@@ -97,15 +97,18 @@ div#right {
 input#author,
 input#topic-words {
 	display: inline;
-	width: 80px;
 	border-top: none;
 	border-bottom: 1px dotted #00aa00;
 	padding-bottom: 0px;
 	font-size: 14px;
 	font-family: monospace, Hiragino Sans GB, 文泉驿正黑, 微软雅黑, sans-serif;
 }
+
+input#author {
+	width: 80px;
+}
 input#author:focus {
-	width: 120px;
+	width: 150px;
 }
 
 a.button.right{
@@ -121,12 +124,7 @@ input#topic-words {
 /* */
 
 div#help {
-	min-height: 40px;
-	max-width: 300px;
-	position: fixed;
-	top: 5px;
-	left: 5px;
-	border: 1px solid #007700;
+
 }
 
 span#status {
