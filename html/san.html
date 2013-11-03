@@ -62,7 +62,29 @@
       <div class="clear-fix"></div>
     </div>
     <div id="list" class="page">
-      <span>...无法实现的愿望啊</span>
+      <div id="article-list-" class="listItem templete">
+        <div id="left">
+          <a id="list-words" class="button left"></a>
+          <a id="list-id" class="button left"></a>
+        </div>
+        <div id="right">
+          <span id="list-author"></span>
+          <span id="list-timeStamp"></span>
+        </div>
+        <div class="clear-fix"></div>
+      </div>
+      <div id="article-list">
+      <!-- list to be generated -->
+      </div>
+      <div id="left">
+        <a id="list-previousPage" class="button left" onclick="previousPage();">上一页</a>
+      </div>
+      <div id="right">
+        <a id="list-nextPage" class="button right" onclick="nextPage();">下一页</a>
+      </div>
+      <div class="clear-fix"></div>
+      <span id="status">请点击[上一页]加载第一页</span>
+      <span id="status-page"></span>
     </div>
     <div id="poster" class="page">
       <div id="left">
@@ -80,7 +102,7 @@
     <div class="sep"></div>
     <!-- end center -->
     <div id="center-bottom">
-      <span>ver 0.0.5</span>
+      <span>ver 0.1.0 \(^o^)/</span>
     </div>
     <!-- end center-bottom -->
   </div>

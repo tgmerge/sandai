@@ -123,12 +123,15 @@ input#topic-words {
 
 /* */
 
-div#help {
-
-}
-
 span#status {
 	display: block;
 	width: 100%;
 	text-align: left;
+}
+
+/* */
+div#list div#article-list {
+ 	border-top: 1px solid #003300;
+	border-bottom: 1px solid #003300;
+	padding: 20px 0 5px;
 }

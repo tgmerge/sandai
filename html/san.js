@@ -54,7 +54,7 @@ function pull3() {
   );
 }
 
-function pullArticle() {
+function pullArticle(aid) {
   var articleTextarea = $('div#reader textarea#article');
   var authorInput = $('div#reader input#author')
   var topicDiv = $('div#reader div#topic-words');
@@ -62,7 +62,8 @@ function pullArticle() {
   animateChange(topicDiv, '文章 正在 读取中');
   $.get(
     url, {
-      method: "pullArticle"
+      method: "pullArticle",
+      aid: aid
     },
     function(data) {
       if(data.stat) {
@@ -160,4 +161,73 @@ function testdebug() {
 }
 
 
-/** 事件 **/
+/** 更换分页 **/
+
+var currentPage = 0;
+var lastPage = false;
+var itemPerPage = 10;
+
+function previousPage() {
+  if( currentPage != 0 ) {
+    currentPage --;
+  }
+  pullArticleList(currentPage);
+}
+
+function nextPage() {
+  if( !lastPage ) {
+    currentPage ++;
+  }
+  pullArticleList(currentPage);
+}
+
+function toArticle(aid) {
+  pullArticle(aid);
+  switchTo('reader');
+}
+
+function pullArticleList() {
+  var statDiv = $('div#list span#status');
+  var pageDiv = $('div#list span#status-page');
+
+  // 设置Loading
+  animateChange(statDiv, '>> 加载中');
+
+  $.get(
+    url, {
+      method: "pullArticleList",
+      page: currentPage
+    },
+    function(data) {
+      // 判断是否最后一页
+      if(data[itemPerPage-1]) {
+        lastPage = false;
+      } else {
+        lastPage = true;
+      }
+      // 删除现有列表项
+      var listDiv = $("div#article-list");
+      listDiv.empty();
+      // 添加列表项
+      var templete = $("div#article-list-");
+      var itemId = templete.attr("id");
+      for(var i = 0; data[i]; i ++) {
+        var itemDiv = templete.clone();
+        itemDiv.attr("id", itemId+i);
+        itemDiv.find("#list-words").text(data[i].words);
+        itemDiv.find("#list-words").attr('onclick', 'toArticle('+data[i].aid+');');
+        //itemDiv.find("#list-id").text(data[i].aid);
+        itemDiv.find("#list-author").text(data[i].author);
+        itemDiv.find("#list-timeStamp").text(new Date(data[i].timeStamp).toLocaleString());
+        console.log(itemDiv);
+        listDiv.append(itemDiv);
+      }
+      // 设置页码
+      var pageStr = '第'+(currentPage+1)+'页';
+      if(lastPage) {
+        pageStr += '(末页)';
+      }
+      animateChange(statDiv, pageStr);
+    }
+  );
+}
