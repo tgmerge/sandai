@@ -1,15 +1,29 @@
 /** 00dd00 007700 003300 **/
 
+/* fonts */
+
+body,
+body a,
+body a:hover,
+input#author,
+input#topic-words {
+	font-family: monospace, "Hiragino Sans GB", "WenQuanYi Zen Hei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "Microsoft YaHei", "Apple LiGothic Medium", "SimHei", "ST Heiti", "WenQuanYi Zen Hei Sharp";
+}
+
+input,
+textarea,
+div#topic-words {
+	font-family: monospace, 方正博雅方刊宋_GBK, Hiragino Sans GB, 文泉驿正黑, "NSimSun", "SimSun", "STSong", "AR PL SungtiL GB", "TW\-Sung", "WenQuanYi Bitmap Song";
+}
 
 
 /** 通用 **/
 
 body, 
 body a, body a:hover {
-	color: #00aa00;
+	color: #00DD00;
 	text-decoration: none;
 	font-size: 14px;
-	font-family: monospace, Hiragino Sans GB, 文泉驿正黑, 微软雅黑, sans-serif;
 }
 
 input, textarea {
@@ -22,7 +36,6 @@ input, textarea {
 	color: #00DD00;
 	text-decoration: none;
 	font-size: 16px;
-	font-family: monospace, 方正博雅方刊宋_GBK, Hiragino Sans GB, 文泉驿正黑, 微软雅黑, 宋体, serif;
 }
 
 textarea {
@@ -35,7 +48,7 @@ textarea {
 }
 
 a.button {
-	border-bottom: 1px dotted #007700;
+	border-bottom: 1px dotted #00DD00;
 	padding-bottom: 0px;
 	line-height: 14px;
 	cursor:pointer;
@@ -78,7 +91,6 @@ div#topic-words {
 	text-align: center;
 	word-spacing: 20px;
 	font-size: 30px;
-	font-family: Georgia, 方正博雅方刊宋_GBK, Hiragino Sans GB, 宋体, serif;
 }
 
 div#left {
@@ -98,10 +110,9 @@ input#author,
 input#topic-words {
 	display: inline;
 	border-top: none;
-	border-bottom: 1px dotted #00aa00;
+	border-bottom: 1px dotted #00DD00;
 	padding-bottom: 0px;
 	font-size: 14px;
-	font-family: monospace, Hiragino Sans GB, 文泉驿正黑, 微软雅黑, sans-serif;
 }
 
 input#author {
