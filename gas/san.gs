@@ -70,6 +70,9 @@ function parseRequest(e) {
   else if (method == 'pushArticle') {
     returnStr = pushArticle(param.words, param.content, param.author);
   }
+  else if (method == 'pullArticleList') {
+    returnStr = pullArticleList(param.page);
+  }
   // else failed
   else {
     returnStr = FAIL_UNKNOWN;
@@ -291,22 +294,47 @@ function pullArticle(aid) {
   return JSON.stringify(result);
 }
 
+/* pullArticleList */
 
+/* return: aid: article ID, author: author, timestamp: time stamp, words: words */
+function pullArticleList(page) {
+  var pageSize = 10;
+  if( !page ) {
+    page = 0;
+  }
+  // query all articles by timestamp, desc
+  var results = db.query({ type: 'article' }).sortBy('timeStamp', db.DESCENDING).paginate(page, pageSize);
+  // result object list
+  var page = new Array(pageSize);
+  var resultItem;
+  for( var i = 0; results.hasNext(); i ++ ) {
+    resultItem = results.next();
+    page[i] = {
+      aid: resultItem.aid,
+      author: resultItem.author,
+      timeStamp: resultItem.timeStamp,
+      words: resultItem.words
+    }
+  }
+  
+  Logger.log(JSON.stringify(page));
+  return JSON.stringify(page);
+}
 
 /* hash */
 
 String.prototype.hashCode = function(){
-	var hash = 0;
-	if (this.length == 0) return hash;
-	for (i = 0; i < this.length; i++) {
-		char = this.charCodeAt(i);
-		hash = ((hash<<5)-hash)+char;
-		hash = hash & hash; // Convert to 32bit integer
-	}
-	return hash;
+  var hash = 0;
+  if (this.length == 0) return hash;
+  for (i = 0; i < this.length; i++) {
+    char = this.charCodeAt(i);
+    hash = ((hash<<5)-hash)+char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return hash;
 }
 
 
 function test() {
-  debug();
+  pullArticleList(1);
 }
