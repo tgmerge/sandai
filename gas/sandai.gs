@@ -85,21 +85,7 @@ function parseRequest(e) {
 
 /* debug */
 function debug() {
-  var results = db.query({});
-  var returnStr = '';
-
-  while (results.hasNext()) {
-    var result = results.next();
-    returnStr += JSON.stringify(result) + '\n';
-  }
-  
-  Logger.log(returnStr);
-  
-  returnStr = {
-    data: returnStr
-  };
-  
-  return JSON.stringify(returnStr);
+  return 'null';
 }
 
 
@@ -295,7 +281,6 @@ function pullArticle(aid) {
 }
 
 /* pullArticleList */
-
 /* return: aid: article ID, author: author, timestamp: time stamp, words: words */
 function pullArticleList(page) {
   var pageSize = 10;
@@ -321,7 +306,6 @@ function pullArticleList(page) {
   return JSON.stringify(page);
 }
 
-/* hash */
 
 String.prototype.hashCode = function(){
   var hash = 0;

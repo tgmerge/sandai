@@ -7,11 +7,13 @@
   <link rel="icon" href="http://static.tumblr.com/ersf1qc/lAlmvozma/fav.png" type="image/png">
   <link rel="stylesheet" type="text/css" href="san.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="jquery.min.js"></script>
   <script src="san.js"></script>
 </head>
 
 <body class="home" onload="switchTo('editor'); pull1();">
   <div id="wrap">
+    <!-- 工具栏 -->
     <div id="switch">
       <a id="switch-help" class="button pageswitch" onclick="switchTo('help')">帮助</a>
       <a id="switch-editor" class="button pageswitch" onclick="switchTo('editor')">编写故事</a>
@@ -20,6 +22,8 @@
       <a id="switch-poster" class="button pageswitch" onclick="switchTo('poster')">添加题目</a>
     </div>
     <div class="sep"></div>
+
+    <!-- 帮助 -->
     <div id="help" class="page">
       <span>
         <strong>这是怎么用的?</strong><br>
@@ -37,35 +41,42 @@
         现在只是一个试验版本，虽然有备份但也请不要玩坏它，谢谢。
       </span>
     </div>
-    <!-- end center-top -->
+    <!-- 编写故事 -->
     <div id="editor" class="page">
       <div id="topic-words">在这里 编写 故事</div>
       <textarea id="article"></textarea>
-      <div id="left">
-        <span>作者(可选):</span>
-        <input id="author" />
-      </div>
-      <div id="right">
-        <a id="editor-pull1" class="button right" onclick="pull1()">换一个完全随机的主题</a>
-        <a id="editor-pull3" class="button right" onclick="pull3()">换一个三个一组的主题</a>
-        <a id="editor-pushArticle" class="button right"  onclick="pushArticle();">提交</a>
+      <div class="toolbar">
+        <div id="left">
+          <span>作者(可选):</span>
+          <input id="author" />
+        </div>
+        <div id="right">
+          <a id="editor-pull1" class="button right" onclick="pull1()">更换随机主题</a>
+          <a id="editor-pull3" class="button right" onclick="pull3()">更换固定主题</a>
+          <a id="editor-pushArticle" class="button right"  onclick="pushArticle();">提交</a>
+        </div>
       </div>
       <div class="clear-fix"></div>
       <span id="status">&nbsp;</span>
     </div>
+    <!-- 阅读故事 -->
     <div id="reader" class="page">
       <div id="topic-words">在这里 查看 故事</div>
       <textarea id="article" readonly='true'></textarea>
-      <div id="left">
-        <span>作者</span>
-        <input id="author" readonly='true' />
-      </div>
-      <div id="right">
-        <a id="editor-pullArticle" class="button right" onclick="pullArticle();">随便读取一篇文章</a>
+      <div class="toolbar">
+        <div id="left">
+          <span>作者</span>
+          <input id="author" readonly='true' />
+        </div>
+        <div id="right">
+          <a id="editor-pullArticle" class="button right" onclick="pullArticle();">随便读取一篇文章</a>
+        </div>
       </div>
       <div class="clear-fix"></div>
     </div>
+    <!-- 所有故事 -->
     <div id="list" class="page">
+      <div id="topic-words">全部 故事 列表</div>
       <div id="article-list-" class="listItem templete">
         <div id="left">
           <a id="list-words" class="button left"></a>
@@ -80,19 +91,24 @@
       <div id="article-list">
       <!-- list to be generated -->
       </div>
-      <div id="left">
-        <a id="list-previousPage" class="button left" onclick="previousPage();">上一页</a>
-      </div>
-      <div id="right">
-        <a id="list-nextPage" class="button right" onclick="nextPage();">下一页</a>
+      <div class="toolbar">
+        <div id="left">
+          <a id="list-firstPage" class="button left" onclick="firstPage();">第一页</a>
+        </div>
+        <div id="right">
+          <a id="list-previousPage" class="button right" onclick="previousPage();">上一页</a>
+          <a id="list-nextPage" class="button right" onclick="nextPage();">下一页</a>
+        </div>
       </div>
       <div class="clear-fix"></div>
       <span id="status">请点击[上一页]加载第一页</span>
       <span id="status-page"></span>
     </div>
+    <!-- 添加题目 -->
     <div id="poster" class="page">
+      <div id="topic-words">添加 新的 主题词</div>
       <div id="left">
-        <span>提交新的主题词</span>
+        <span>新的主题词</span>
         <input id="topic-words" />
       </div>
       <div id="right">
@@ -103,10 +119,11 @@
       <span id="status">&nbsp;</span>
       <span><br>如果选择提交一组的话，请输入三个用空格、逗号或顿号分隔的词语。</span>
     </div>
+
     <div class="sep"></div>
-    <!-- end center -->
+    <!-- 底栏 -->
     <div id="center-bottom">
-      <span>ver 0.1.0 \(^o^)/</span>
+      <span>ver 0.1.4 \(^o^)/ by <a class="button" href="http://tgmerge.me">tgmerge</a></span>
     </div>
     <!-- end center-bottom -->
   </div>

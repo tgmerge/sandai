@@ -1,4 +1,11 @@
+// GAS地址
 var url = "https://script.google.com/macros/s/AKfycbxz4jcyKdpZB57LEJ8eYULILpesuqZOGds5jNuZcdkLJDiOZfJt/exec";
+
+// 分页信息的变量
+var isListSelected = false;
+var currentPage = 0;
+var lastPage = false;
+var itemPerPage = 10;
 
 function animateChange(jQobj, text) {
   jQobj.fadeTo("fast", 0.1, function(){jQobj.text(text)});
@@ -12,6 +19,12 @@ function switchTo(targetId) {
   $('a.pageswitch').fadeTo(10, 0.5);
   $('div#'+targetId).fadeIn("fast");
   $('a#switch-'+targetId).fadeTo(10, 1);
+
+  // 如果第一次点击“所有故事”就先加载一下
+  if(targetId == 'list' && !isListSelected ) {
+    isListSelected = true;
+    previousPage();
+  }
 }
 
 /* --- pull --- */
@@ -160,13 +173,11 @@ function testdebug() {
   );
 }
 
-
 /** 更换分页 **/
-
-var currentPage = 0;
-var lastPage = false;
-var itemPerPage = 10;
-
+function firstPage() {
+  currentPage = 0;
+  pullArticleList(currentPage);
+}
 function previousPage() {
   if( currentPage != 0 ) {
     currentPage --;
