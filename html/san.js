@@ -227,6 +227,7 @@ function pullArticleList() {
         itemDiv.attr("id", itemId+i);
         itemDiv.find("#list-words").text(data[i].words);
         itemDiv.find("#list-words").attr('onclick', 'toArticle('+data[i].aid+');');
+        itemDiv.find("#list-length").text(data[i].length);
         //itemDiv.find("#list-id").text(data[i].aid);
         itemDiv.find("#list-author").text(data[i].author);
         itemDiv.find("#list-timeStamp").text(new Date(data[i].timeStamp).toLocaleString());

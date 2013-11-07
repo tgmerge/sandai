@@ -89,6 +89,7 @@ div.toolbar {
 div#center-bottom,
 div#center-bottom a {
 	color: #007700;
+	font-size: 9px;
 }
 
 div#editor {
@@ -143,4 +144,11 @@ span#status {
 div#list div#article-list {
  	border-top: 1px solid #003300;
 	padding: 20px 0 5px;
+}
+
+div#list span#list-length {
+	min-width: 25px;
+	text-align: right;
+	display: inline-block;
+	margin-right: 3px;
 }
