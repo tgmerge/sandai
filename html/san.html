@@ -46,13 +46,14 @@
     <!-- 编写故事 -->
     <div id="editor" class="page">
       <div id="topic-words">在这里 编写 故事</div>
-      <textarea id="article"></textarea>
+      <textarea id="article" onkeyup="editorTextareaKeyUp()"></textarea>
       <div class="toolbar">
         <div id="left">
           <span>作者(可选):</span>
           <input id="author" />
         </div>
         <div id="right">
+          <span id="editor-length">0</span>
           <a id="editor-pull1" class="button right" onclick="pull1()">更换随机主题</a>
           <a id="editor-pull3" class="button right" onclick="pull3()">更换固定主题</a>
           <a id="editor-pushArticle" class="button right"  onclick="pushArticle();">提交</a>

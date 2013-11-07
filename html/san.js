@@ -243,3 +243,17 @@ function pullArticleList() {
     }
   );
 }
+
+/* --- 事件 --- */
+function editorTextareaKeyUp() {
+  var len = $('div#editor textarea#article').val().length;
+  var obj = $('#editor-length');
+  $('#editor-length').text(len);
+  if(len>1500) {
+    obj.css("color", "#FF0000");
+  } else if(len>1000) {
+    obj.css("color", "#FFFF00");
+  } else {
+    obj.css("color", "#00DD00");
+  }
+}
